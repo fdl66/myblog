@@ -1,0 +1,132 @@
+---
+title: '[原]Linux文件压缩及归档'
+tags: []
+date: 2016-11-19 17:17:50
+---
+
+# 压缩  解压缩命令
+
+## 压缩格式:
+
+    gz,bz2,xz,zip,
+    压缩算法不同,压缩比也会不同;
+    `</pre>
+
+    ## 压缩命令
+
+    <pre>`*不支持压缩目录*
+    `</pre>
+
+    ### 早期:compress:FILENAME.Z
+
+    <pre>`    umcompress
+    `</pre>
+
+    ### gzip: .gz
+
+    <pre>`    gzip /PATH/TO/SOURCEFILE 压缩完成后会删除原文件
+            -d:解压
+            -#:(1-9)指定压缩比,默认为6;
+
+        gunzip:
+            gunzip /PATH/TO/SOMEFILE.gz :解压完成后会删除原文件
+            zcat /PATH/TO/SOMEFILE.gz 表示在不解压的情况下,查看文本文件的内容
+    `</pre>
+
+    ### bzip2: .bz2
+
+    <pre>`    比gzip有着更强大的压缩比的压缩工具,使用格式类似
+        -d:
+        -#:(1-9)
+        -k:压缩时保留原文件
+
+        bunzip2:解压
+
+        bzcat:同zcat
+    `</pre>
+
+    ### xz: .xz
+
+    <pre>`    压缩比更大,用法同bzip2
+
+        unxz:解压
+        xzdec,解压.xz压缩文件,
+        xzcat:
+    `</pre>
+
+    ### zip:(压缩比较小)(归档而且压缩)
+
+    <pre>`    $:zip FILENAME.zip file1 file2 ... : 压缩,且不删除原文件
+        unzip:
+            unzip FILENAME.zip
+    `</pre>
+
+    ## archive:归档,归档本身并不意味着压缩
+
+    ### tar:(归档工具)
+
+    <pre>`    -c :创建归档文件
+        -f FILE.tar : 操作的归档文件
+        -x :展开归档
+        --xattrs:归档时保留其扩展属性信息
+        $:tar -cf FILE.tar file1 file2 ... (归档命令)
+        $:tar -xf FILE.tar (展开归档命令)
+        $:tar -tf FILE.tar (不展开文件,查看归档了哪些文件)
+        -zcf:归档并调用gzip压缩
+        -zxf:调用gzip解压并展开压缩文件(解压时,z选项可省略,下面的解压,j,J都可省略)
+
+        -jcf:调用bzip2
+        -jxf:
+
+        -Jcf:调用xz
+        -Jxf:
+    `</pre>
+
+    ### cpio:归档工具
+
+    ## 补充
+
+    ### read命令
+
+    <pre>`read:
+        后面加上要输入的变量名
+        -p:打印内容,并输入
+            $:read -p "打印的内容" a b ...
+    `</pre>
+
+    ### echo
+
+    <pre>`echo:
+        -n:不换行
+    `</pre>
+
+    ### 压缩文件的小脚本
+
+    <pre class="prettyprint">`<span class="hljs-shebang">#!/bin/bash
+    </span>
+    <span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please input files' name,which you want to compress:"</span> FILENAME
+    <span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please input Destination:"</span> DEST 
+    <span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please input the compress type :"</span> TYPE 
+
+    <span class="hljs-keyword">case</span> <span class="hljs-variable">$TYPE</span> <span class="hljs-keyword">in</span> 
+    gzip)
+        tar -zcf <span class="hljs-variable">${DEST}</span>.tar.gz <span class="hljs-variable">${FILENAME}</span> 
+        ;;
+    bzip2)
+        tar -jcf <span class="hljs-variable">${DEST}</span>.tar.bz2 <span class="hljs-variable">${FILENAME}</span>
+        ;;
+    xz)
+        tar -Jcf <span class="hljs-variable">${DEST}</span>.tar.xz <span class="hljs-variable">${FILENAME}</span> 
+        ;;
+    *)
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"Unknown TYPE!"</span>
+        <span class="hljs-keyword">exit</span> <span class="hljs-number">9</span>
+        ;;
+    <span class="hljs-keyword">esac</span>
+
+            <div>
+                作者：qq_27803491 发表于2016/11/19 17:17:50 [原文链接](http://blog.csdn.net/qq_27803491/article/details/53232202)
+            </div>
+            <div>
+            阅读：132 评论：0 [查看评论](http://blog.csdn.net/qq_27803491/article/details/53232202#comments)
+            </div>
