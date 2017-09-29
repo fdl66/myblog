@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
 ![运行结果,顺序执行](http://function.dearamaze.com/onethr_run.png)
 
-<!--more-->
+
 
 
 ## 使用thread模块(mtsleepA.py)

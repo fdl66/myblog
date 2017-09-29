@@ -8,16 +8,16 @@ categories: 网络
 ## TCP
 ### 客户端
 ```
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/shm.h>
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
 
 #define MYPORT  8887
 #define BUFFER_SIZE 1024
@@ -62,16 +62,16 @@ int main()
 ```
 ### 服务端
 ```
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/shm.h>
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
 
 #define MYPORT  8887
 #define QUEUE   20
@@ -145,11 +145,11 @@ tcp_server:
 ## UDP
 ### 客户端
 ```
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <string.h>
+#include 
+#include 
+#include 
+#include 
+#include 
 
 #define SERVER_PORT 8888
 #define BUFF_LEN 512
@@ -208,11 +208,11 @@ int main(int argc, char* argv[])
 ```
 ### 服务端
 ```
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <string.h>
+#include 
+#include 
+#include 
+#include 
+#include 
 
 #define SERVER_PORT 8888
 #define BUFF_LEN 1024
@@ -292,16 +292,16 @@ udp_server
 ## TCP
 ### 客户端
 ```
-#include <stdio.h> 
-#include <string.h> 
-#include <stdlib.h> 
-#include <string.h> 
-#include <unistd.h> 
-#include <fcntl.h> 
-#include <sys/types.h> 
-#include <sys/socket.h> 
-#include <netinet/in.h> 
-#include <arpa/inet.h> 
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
   
 #define MAXLINE 1024 
   
@@ -368,15 +368,15 @@ int main(int argc,char **argv)
 ```
 ### 服务端
 ```
-#include <stdio.h> 
-#include <string.h> 
-#include <stdlib.h> 
-#include <string.h> 
-#include <unistd.h> 
-#include <sys/types.h> 
-#include <sys/socket.h> 
-#include <netinet/in.h> 
-#include <arpa/inet.h> 
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
   
 #define MAXLINE 1024 
   
@@ -468,16 +468,16 @@ tcp_file_servier
 ## UDP
 ### 客户端
 ```
-#include <stdio.h> 
-#include <string.h> 
-#include <stdlib.h> 
-#include <string.h> 
-#include <unistd.h> 
-#include <fcntl.h> 
-#include <sys/types.h> 
-#include <sys/socket.h> 
-#include <netinet/in.h> 
-#include <arpa/inet.h> 
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
   
 #define FINISH_FLAG "FILE_TRANSPORT_FINISH" 
 #define MAXLINE 1024 
@@ -554,15 +554,15 @@ int main(int argc,char **argv)
 ### 服务端
 
 ``` C
-#include <stdio.h> 
-#include <string.h> 
-#include <stdlib.h> 
-#include <string.h> 
-#include <unistd.h> 
-#include <sys/types.h> 
-#include <sys/socket.h> 
-#include <netinet/in.h> 
-#include <arpa/inet.h> 
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
+#include  
   
 #define FINISH_FLAG "FILE_TRANSPORT_FINISH" 
 #define MAXLINE 1024 

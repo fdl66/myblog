@@ -78,9 +78,9 @@ void * mempool_alloc(mempool_t *pool, gfp_t gfp_mask){
 ```C
 void mempool_free(void *element, mempool_t *pool)
 {
-	if (pool->curr_nr < pool->min_nr) {
+	if (pool->curr_nr min_nr) {
 		spin_lock_irqsave(&pool->lock, flags);
-		if (pool->curr_nr < pool->min_nr) {
+		if (pool->curr_nr min_nr) {
 			add_element(pool, element);
 			spin_unlock_irqrestore(&pool->lock, flags);
 			wake_up(&pool->wait);

@@ -14,4 +14,3 @@ categories: linux
 
 
 
-<!--more-->
